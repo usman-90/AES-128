@@ -1,4 +1,4 @@
-const plainText = "this is a very secret text dont read it brother and get lost! lol"
+const plainText = "this is a very secret text dont read it brother"
 const key = "ansdfoasnidfoisadnf"
 
 const invSBox = [
@@ -371,7 +371,8 @@ function addRoundKey(mat, rKey) {
 function EncryptAES(plainText, k) {
 
     const key = getTextMatrix(k)[0]
-    const textEncoding = getTextMatrix(plainText)
+    const textEncoding = getTextMatrix(plainText).filter(elem => elem.length)
+
     let cipher = ""
 
     while (textEncoding.length) {
